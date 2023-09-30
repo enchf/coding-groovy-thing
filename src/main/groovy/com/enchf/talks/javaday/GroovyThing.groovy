@@ -1,9 +1,11 @@
 package com.enchf.talks.javaday
 
+import groovy.util.logging.Slf4j
 import org.reflections.Reflections
 import spock.lang.Specification
 import spock.util.EmbeddedSpecRunner
 
+@Slf4j
 class GroovyThing {
 
     static def TESTS_PACKAGE = "com.enchf.talks.javaday.tests"
@@ -12,6 +14,9 @@ class GroovyThing {
         def specifications = new Reflections(TESTS_PACKAGE).getSubTypesOf(Specification)
         def runner = new EmbeddedSpecRunner()
 
-        specifications.each { runner.runClass(it) }
+        specifications.eachWithIndex { it, index ->
+            log.info("Running test case #${index + 1} of class ${it.name}")
+            runner.runClass(it)
+        }
     }
 }

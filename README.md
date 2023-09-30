@@ -80,3 +80,9 @@ of the JUnit tearDown method, invoked after each method of each specification.
 We can appreciate how the tests code are more focused in what they should test, using delegated methods and injected
 instance variables appropriately. Also, another Spock feature is shown in the CreateCompartment test: the use of
 `where:` blocks for data driven testing.
+
+### 5 - Using associative arrays
+
+Associative arrays are Java Maps used as JS/Ruby objects. We can use the keys directly as properties. We can see how
+we can inject fully functionality into a class as a composition using @Delegate or traits as mixins. Release trait
+encapsulates all release functionality and object handling.
