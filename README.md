@@ -47,3 +47,12 @@ Regarding Groovy syntax features, we can appreciate the following:
 * Semicolon is optional and discouraged.
 * Dynamically typed variables.
 * Closures in action, syntax using brackets and have an implicit `it` variable for single parameters closures.
+
+### 3 - A real test is added
+
+A real test listing OCI compartments is added. Spock features can be seen in action, with the blocks defined showing
+assignations, executions and assertions.
+
+The most relevant change here is the introduction of a trait, working as a helper for the Spock specifications.
+The trait injects the authentication provider used in any OCI API client as an instance variable, available in all
+test specifications implementing the OCI trait.
