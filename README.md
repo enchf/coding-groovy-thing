@@ -56,3 +56,27 @@ assignations, executions and assertions.
 The most relevant change here is the introduction of a trait, working as a helper for the Spock specifications.
 The trait injects the authentication provider used in any OCI API client as an instance variable, available in all
 test specifications implementing the OCI trait.
+
+### 4 - Introduce Annotation based transformers
+
+A wrapper for the Identity OCI client class is introduced to perform all API requests. It uses the following 
+annotations to transform the class:
+
+* @Slf4j - Automatically injects a log to the class, avoiding all the Logger boilerplate.
+* @Singleton - Enables a variable called `instance` as the unique instance of the class.
+* @Lazy - Assigns the value of an instance variable on-demand using a closure trick for compilation.
+* @Delegate - Used in two forms: a full delegation and a selective one for a single method.
+
+This wrapper class also shows the use of these other Groovy features:
+
+* Initialization of lists as in scripting languages, using simply `[]`.
+* String interpolation with the `${}` operator.
+* Tap functional method, which invokes a method on an object and returns the object itself.
+
+To continue with the mixin approach in the test helpers, OCI trait provides the single instance of the client to the
+specifications implementing it, and also provides a default override of the cleanup method, which is the Spock version 
+of the JUnit tearDown method, invoked after each method of each specification.
+
+We can appreciate how the tests code are more focused in what they should test, using delegated methods and injected
+instance variables appropriately. Also, another Spock feature is shown in the CreateCompartment test: the use of
+`where:` blocks for data driven testing.
