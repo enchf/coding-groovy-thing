@@ -31,3 +31,19 @@ Project is set up using IntelliJ new project wizard. As it is already created, w
 Maven pom.xml file is automatically created by IntelliJ. Groovy, Spock and other required dependencies are added,
 along with configuration to produce the executable JAR. Execute `mvn clean package` to have the jar available at
 `target` and then execute `java -jar target/<jar-name>.jar` to run the project.
+
+### 2 - Fetch Spock specifications
+
+In this second commit, Spock features can be seen at a glance:
+
+* Logical blocks, having more advantage than frameworks like Cucumber.
+* Take advantage of string based method names to create meaningful test names.
+* Dynamically execution of specifications using EmbeddedSpecRunner.
+
+Also, we can notice the use of a third-party library that provides some efficient Reflections utilities.
+
+Regarding Groovy syntax features, we can appreciate the following:
+
+* Semicolon is optional and discouraged.
+* Dynamically typed variables.
+* Closures in action, syntax using brackets and have an implicit `it` variable for single parameters closures.
